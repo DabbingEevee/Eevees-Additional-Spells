@@ -45,7 +45,7 @@ public class ArcaneDootingSpell extends AbstractSpell {
 			.setMinRarity(SpellRarity.RARE)
 			.setSchool(SchoolType.EVOCATION)
 			.setMaxLevel(10)
-			.setCooldownSeconds(0)
+			.setCooldownSeconds(2)
 			.build();
 
 	@Override
