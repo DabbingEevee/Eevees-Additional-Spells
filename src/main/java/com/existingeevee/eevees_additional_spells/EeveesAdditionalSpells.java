@@ -1,8 +1,10 @@
-package io.redspace.irons_example_mod;
+package com.existingeevee.eevees_additional_spells;
 
+import com.existingeevee.eevees_additional_spells.init.ItemRegistry;
+import com.existingeevee.eevees_additional_spells.init.SoundEventRegistry;
+import com.existingeevee.eevees_additional_spells.init.SpellRegistry;
 import com.mojang.logging.LogUtils;
-import io.redspace.irons_example_mod.registry.ItemRegistry;
-import io.redspace.irons_example_mod.registry.SpellRegistry;
+
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -15,16 +17,17 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(IronsExampleMod.MODID)
-public class IronsExampleMod {
-    public static final String MODID = "irons_example_mod";
+@Mod(EeveesAdditionalSpells.MODID)
+public class EeveesAdditionalSpells {
+    public static final String MODID = "eevees_additional_spells";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public IronsExampleMod() {
+    public EeveesAdditionalSpells() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
-        SpellRegistry.register(modEventBus);
-        ItemRegistry.register(modEventBus);
+        SpellRegistry.SPELLS.register(modEventBus);
+        ItemRegistry.ITEMS.register(modEventBus);
+        SoundEventRegistry.SOUND_EVENTS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
